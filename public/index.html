@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-RC.8/bundles/datastar.js"></script>
+    <title>DStar</title>
+  </head>
+  <body>
+    <h1>Datastar experiments</h1>
+    <button data-on:click="alert('I’m sorry, Dave. I’m afraid I can’t do that.')">
+      alert: Open the pod bay doors, HAL.
+    </button>
+    <br/>
+    <button data-on:click="@get('/endpoint')">
+      div update: Open the pod bay doors, HAL.
+    </button>
+    <div id="hal"></div>
+
+    <p>
+    <input data-bind:foo-bar type="text" />
+    <span data-attr:hidden="$fooBar!=''"><-- Please input some text. Try including "open".</span>
+    <div data-text="($fooBar).length>0 ? 'dup: '+$fooBar : ''"
+         data-class:non-empty="$fooBar!=''"></div>
+    <div data-computed:my-repea-ter="$fooBar.repeat(2)" 
+         data-class="{'non-empty': $fooBar!='', alarm: $fooBar.toLowerCase().includes('open') }"
+         data-text="($myRepeaTer).length>0 ? 'rep: '+$myRepeaTer : '' "></div>
+    <button data-show="$fooBar != ''" data-on:click="$fooBar=''"
+            style="display: none" class="caution">Clear</button>
+
+    <div data-signals:hal="'...'">
+      <button data-on:click="$hal = 'Affirmative, Dave. I read you.'">
+        HAL, do you read me?
+      </button>
+      <button data-on:click="@get('/hal')">Broadcast: HAL, do you read me?</button><br/>
+      <div data-text="$hal"></div>
+      <button data-on:click="@get('/reset')" class="caution">Master Reset</button>
+    </div>
+
+    <hr>
+    <div data-signals:result style="display: flex; gap: var(--size-3);">
+      <div>
+        js func: <input data-bind:foo 
+                     data-on:input="myfunction(el,$foo)" type="text"
+                                                         data-on:mycustomevent="$result=evt.detail.value">
+      </div>
+      <div data-text="$result"></div>
+    </div>
+
+    <div data-signals:barresult="''" style="display:flex; gap: var(--size-3); margin-top: var(--size-3);">
+      <div>
+        web comp: <input data-bind:bar type="text" />
+      </div>
+      <my-component
+          data-attr:src="$bar"
+          data-on:mycustomevent="$barresult = evt.detail.value" >
+          <span slot="alpha">Terpau</span>
+      </my-component>
+      <div data-text="$barresult"></div>
+    </div>
+
+    <template id="gerbau">
+      <div style="background-color: var(--green-2); padding: var(--size-1);">
+        <slot name="alpha">My default text</slot>
+      </div>
+    </template>
+
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+@import "https://unpkg.com/open-props";
+
+body {
+  font-family: var(--font-classical-humanist);
+  font-size: var(--font-fluid-1);
+  margin-inline: var(--size-2);
+}
+
+button {
+  background-color: var(--gray-2);
+  border-color: var(--gray-0);
+  margin-block: var(--size-2);
+  font-size: var(--font-size-2);
+  padding: var(--size-1);
+  border-radius: var(--radius-2);
+  &:hover {
+    background-color: var(--gray-1); 
+  }
+}
+button.caution {
+  background-color: var(--red-7);
+  color: white;
+}
+
+
+hr {
+  width: var(--size-content-2);
+  margin-left: 0;
+}
+
+input[type="text"] {
+  border-color: var(--gray-0);
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-2);
+  padding: var(--size-1);
+  &:focus{
+    background-color: var(--indigo-0);
+    border-radius: var(--radius-2);
+    border-color: var(--indigo-0);
+    outline: solid var(--indigo-2);
+  }
+}
+
+.non-empty {
+  color: var(--green-9);
+  font-weight: var(--font-weight-6);
+}
+.non-empty.alarm {
+  color: var(--red-9);
+  font-weight: var(--font-weight-6);
+}
