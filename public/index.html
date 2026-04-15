@@ -42,8 +42,8 @@
     <div data-signals:result style="display: flex; gap: var(--size-3);">
       <div>
         js func: <input data-bind:foo 
-                     data-on:input="myfunction(el,$foo)" type="text"
-                                                         data-on:mycustomevent="$result=evt.detail.value">
+                        data-on:input="myfunction(el,$foo)" type="text"
+                                                            data-on:mycustomevent="$result=evt.detail.value">
       </div>
       <div data-text="$result"></div>
     </div>
@@ -63,7 +63,13 @@
     </div>
 
     <template id="gerbau">
-      <span style="background-color: var(--green-1); padding: var(--size-1);">
+      <style>
+.gerbau {
+  background-color: var(--green-1);
+  padding: var(--size-1);
+}
+      </style>
+      <span class="gerbau">
         <slot name="alpha">My default text</slot>
       </span>
     </template>
