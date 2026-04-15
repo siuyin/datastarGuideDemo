@@ -20,7 +20,7 @@ class MyComponent extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    const value = `You entered: ${newValue}`;
+    const value = `${newValue}`;
     this.dispatchEvent(
       new CustomEvent('mycustomevent', {detail: {value}})
     );

@@ -52,18 +52,20 @@
       <div>
         web comp: <input data-bind:bar type="text" />
       </div>
-      <my-component
-          data-attr:src="$bar"
-          data-on:mycustomevent="$barresult = evt.detail.value" >
-          <span slot="alpha">Terpau</span>
-      </my-component>
-      <div data-text="$barresult"></div>
+      <div>
+        <my-component
+            data-attr:src="$bar"
+            data-on:mycustomevent="$barresult = evt.detail.value" >
+            <span slot="alpha">Response: </span>
+        </my-component>
+        <span data-text="$barresult"></span>
+      </div>
     </div>
 
     <template id="gerbau">
-      <div style="background-color: var(--green-2); padding: var(--size-1);">
+      <span style="background-color: var(--green-1); padding: var(--size-1);">
         <slot name="alpha">My default text</slot>
-      </div>
+      </span>
     </template>
 
 
