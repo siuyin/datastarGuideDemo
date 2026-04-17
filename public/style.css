@@ -49,3 +49,27 @@ input[type="text"] {
   color: var(--red-9);
   font-weight: var(--font-weight-6);
 }
+
+nav>ul {
+  padding: 0;
+  margin-left: var(--size-1);
+  display: flex;
+  gap: var(--size-3);
+
+}
+nav>ul>li {
+  list-style: none;
+}
+
+div.my-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(4, var(--size-fluid-6));
+  background-color: var(--blue-0);
+
+  & div {
+    padding: var(--size-2);
+    border: 1px solid; 
+    border-color: var(--blue-3);
+  }
+}
+
